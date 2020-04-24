@@ -1,2 +1,5 @@
 https://www.golangprograms.com/go-language/concurrency.html
 <Classical CS programs implemented with golang>
+
+https://www.golang-book.com/books/intro/10
+<Simple Go routines and channel programs>
