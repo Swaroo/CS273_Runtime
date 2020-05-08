@@ -1,0 +1,3 @@
+https://tour.golang.org/concurrency/1
+
+Goroutines run in the same address space, so access to shared memory must be synchronized.
