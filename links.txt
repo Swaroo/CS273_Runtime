@@ -1,3 +1,6 @@
+https://tour.golang.org/concurrency/1
+<Tour of go for golang concurrency>
+
 https://www.golangprograms.com/go-language/concurrency.html
 <Classical CS programs implemented with golang>
 

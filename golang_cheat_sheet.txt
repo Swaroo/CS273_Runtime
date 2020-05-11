@@ -1,0 +1,5 @@
+1> https://golang.org/pkg/strconv/
+    Package: strconv
+    String to Integer and Integer to String
+    i, err := strconv.Atoi("-42")
+    s := strconv.Itoa(-42)

@@ -1,3 +1,8 @@
 https://tour.golang.org/concurrency/1
 
-Goroutines run in the same address space, so access to shared memory must be synchronized.
+Goroutines - Lightweight thread managed by Go runtime
+Goroutines run in the same address space, shared memoery access need to be synchronized.
+
+Channels - Send and receive values between multiple routines asynchronously.
+Deafult : Both send and receive are blocking calls, so goroutines sending data across a channel doesn't need any explicit locking variables
+Check src/simple/channels_1.go for example.
