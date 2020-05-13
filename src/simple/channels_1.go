@@ -9,7 +9,7 @@ func multiply(arr []int, ch chan int){
 	for _,val := range arr{
 		out *= val
 	}
-	//Send multiplied output back to the channel
+	//Send the product back to the channel
 	ch <- out
 }
 
