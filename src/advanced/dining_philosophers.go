@@ -58,3 +58,4 @@ func main() {
 	go diningProblem(ph[0], fork0, forkLeft)
 	dining.Wait() // wait for philosphers to finish
 	fmt.Println("Table empty")
+}
