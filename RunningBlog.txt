@@ -6,3 +6,9 @@ Goroutines run in the same address space, shared memoery access need to be synch
 Channels - Send and receive values between multiple routines asynchronously.
 Deafult : Both send and receive are blocking calls, so goroutines sending data across a channel doesn't need any explicit locking variables
 Check src/simple/channels_1.go for example.
+
+https://golang.org/pkg/runtime/pprof/
+
+Official golang runtime profiling documentation.
+Needs the package "import/runtime".
+Stores the cpu and memory usage in a text file. 
