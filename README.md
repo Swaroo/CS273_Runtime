@@ -3,3 +3,6 @@ Course Project for Runtime Systems - Spring 2020
 
 #### For the initial Go-routine programs in src/simple
 To run : go run <program.go>
+
+#### To benchmark Standalone Go programs
+go test -cpuprofile cpu.prof -memprofile mem.prof -bench .
