@@ -1,10 +1,47 @@
+https://golang.org/doc/effective_go.html#concurrency
+Why concurrency is tough?
+In most languages, Difficult to implement correct access to shared variables.
+
+How is Go different?
+1> Shared variables are passed around with 'Channels', and never shared by separate threads of execution.
+2> Only one go-routine has access to the value at any given time.
+<Thus, race conditions cannot occur by design>
+
+DO NOT COMMUNICATE BY SHARING MEMORY, INSTEAD, SHARE MEMORY BY COMMUNICATING.
+
+Similar to the type-safe generalization of Unix pipes (*read more about this)
+
+What is a Goroutine?
+Function executing concurrently with other goroutines in the same address space.
+Cheap, because it starts with small stacks and grows by allocating more heap space.
+
+Are multiplexed into multiple OS threads so if one blocks, other continue to run.
+
+What are Channels?
+Way of communicating between different goroutines acting on the same data.
+
+c := make(chan int)  // Allocate a channel.
+// Start the sort in a goroutine; when it completes, signal on the channel.
+go func() {
+    list.Sort()
+    c <- 1  // Send a signal; value does not matter.
+}()
+doSomethingForAWhile()
+<-c   // Wait for sort to finish; discard sent value.
+
+Receiver (<-c) always blocks until there is some data to recieve.
+Sender (->c) blocks until reciever receives the data in 'Unbuffered', or in Buffered channel, blocks until the value has been copied to buffer.
+
+Add the example of http server with go-routines.
+
+
 https://tour.golang.org/concurrency/1
 
 Goroutines - Lightweight thread managed by Go runtime
 Goroutines run in the same address space, shared memoery access need to be synchronized.
 
 Channels - Send and receive values between multiple routines asynchronously.
-Deafult : Both send and receive are blocking calls, so goroutines sending data across a channel doesn't need any explicit locking variables
+Defult : Both send and receive are blocking calls, so goroutines sending data across a channel doesn't need any explicit locking variables
 Check src/simple/channels_1.go for example.
 
 https://golang.org/pkg/runtime/pprof/

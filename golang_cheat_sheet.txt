@@ -6,3 +6,14 @@
 
 2> Running pprof
     go test -cpuprofile cpu.prof -memprofile mem.prof -bench .
+
+3> No Of Cores
+    Package: Runtime
+    runtime.NumCPU()
+    Returns number of hardware CPU Cores
+
+    <Check src/simple/NoOfCores.go for an example>
+
+4> Set Number of Cores
+    runtime.GOMAXPROCS(2)
+    Use 2 hardware cores
