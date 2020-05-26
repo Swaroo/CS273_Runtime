@@ -35,14 +35,52 @@ Sender (->c) blocks until reciever receives the data in 'Unbuffered', or in Buff
 Add the example of http server with go-routines.
 
 
+
+https://www.dotconferences.com/2017/11/sameer-ajmani-simulating-a-real-world-system-in-go
+
+Built on a Communicating sequence process(CSP)
+First, test the process with Go-race detector
+Base the concurrency model on real world model 
+Coffee shop example - https://github.com/Sajmani/dotgo/tree/master/coffee
+
+https://golang.org/ref/spec#Receive_operator
+x, ok := <-chan
+"ok" is true if the value was received by a sucessful send operation to the channel, false if a zero value was generated because channel was closed or empty.
+
+
+https://golang.org/ref/spec#Select_statements
+Switch statement for communication operations
+Chooses which of a set of possible send/receive operations will proceed.
+
+
+
 https://tour.golang.org/concurrency/1
 
 Goroutines - Lightweight thread managed by Go runtime
-Goroutines run in the same address space, shared memoery access need to be synchronized.
+Goroutines run in the same address space, shared memory access need to be synchronized.
 
 Channels - Send and receive values between multiple routines asynchronously.
 Defult : Both send and receive are blocking calls, so goroutines sending data across a channel doesn't need any explicit locking variables
 Check src/simple/channels_1.go for example.
+
+Buffered Channels block when sender sends to a full buffer, or receiver receives on an empty buffer.
+
+Range and close
+Only Sender can close a channel.
+Receiver can check if channel is closed, by adding an extra variable while receiving.
+val, ok := <-chan
+//ok is false if there are no more values to recieve and channel is closed
+
+Sending on Closed channel causes runtime panic
+Not mandatory to close channels like File handlers, only needed when a signal has to be sent explicitly sent to the reciever.
+
+
+Select statement lets a goroutine wait on multiple communication operations.
+If multiple are ready, chooses one at random, if none are ready it blocks.
+Or If none are ready and a default statement is available, default case is run. 
+Thus, default case on a select statement makes it non-blocking.
+Check src/simple/select_command.go
+
 
 https://golang.org/pkg/runtime/pprof/
 
