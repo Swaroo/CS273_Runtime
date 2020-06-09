@@ -8,7 +8,7 @@ go test -cpu=4 -bench=.
 #### For IO Bound task
 cd benchmarking/IO_bound-search
 ##### To generate text files (Creates 50 files)
-cd benchmarking/IO_bound-search/search_directory
+cd benchmarking/IO_bound-search/search_directory<br>
 python3 random_generator.py
 ##### To evaluate
 go test -cpu=4 -bench=.
