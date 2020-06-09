@@ -1,8 +1,13 @@
 # Analysis of Golang Concurrency Model
 Course Project for Runtime Systems - Spring 2020
 
+### Installing Golang
+https://golang.org/dl/ <br>
+Follow the instructions from the official site to obtain Golang for your specific OS. <br>
+No extra pacakages are required to run these programs.
+
 #### For CPU Bound task
-cd benchmarking/CPU_bound-multiply
+cd benchmarking/CPU_bound-multiply <br>
 go test -cpu=4 -bench=.
 
 #### For IO Bound task
@@ -14,7 +19,7 @@ python3 random_generator.py
 go test -cpu=4 -bench=.
 
 #### For CPU + I/O Bound task
-cd benchmarking/URL_load_json_unmarshall
+cd benchmarking/URL_load_json_unmarshall<br>
 go test -cpu=4 -bench=.
 
 #### CPU parameter
@@ -31,9 +36,9 @@ go run src/simple/normal+go_routine.go
 go run src/simple/channels_1.go
 
 ### Equivalent Binary Trees through Go-routines and channels
-Packages - go get golang.org/x/tour/tree
+Packages - go get golang.org/x/tour/tree <br>
 To run - go run src/advanced/equivalent_binary_trees.go
 
 #### To benchmark Standalone Go programs
-Inside the directory containing the Go programs:
+Inside the directory containing the Go programs: <br>
 go test -cpuprofile cpu.prof -memprofile mem.prof -bench .
