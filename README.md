@@ -6,24 +6,25 @@ https://golang.org/dl/ <br>
 Follow the instructions from the official site to obtain Golang for your specific OS. <br>
 No extra pacakages are required to run these programs.
 
-#### For CPU Bound task
+#### Benchmarking CPU Bound task
 cd benchmarking/CPU_bound-multiply <br>
 go test -cpu=4 -bench=.
 
-#### For IO Bound task
+#### Benchmarking IO Bound task
 cd benchmarking/IO_bound-search
-##### To generate text files (Creates 50 files)
+##### Generate text files (Creates 50 files) for temporary search
 cd benchmarking/IO_bound-search/search_directory<br>
 python3 random_generator.py
-##### To evaluate
+##### Evaluation
 go test -cpu=4 -bench=.
 
-#### For CPU + I/O Bound task
+#### Benchmarking CPU + I/O Bound task
 cd benchmarking/URL_load_json_unmarshall<br>
 go test -cpu=4 -bench=.
 
 #### CPU parameter
-All the above benchmarks can be run with -cpu=1 / 2 / 3 /4 till the number of physical CPU Cores.
+All the above benchmarks can be run with -cpu=1 / 2 / 3 /4 till the number of physical CPU Cores.<br>
+The value specifies the number of virtual cores offered to the benchmarking program.
 
 
 #### For the initial Go-routine programs in src/simple
